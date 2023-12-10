@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="l.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
+    <title>Ludo</title>
+</head>
+<body>
+    <div class="sidebar">
+        <a class="active">HOME</a>
+        <button class="btn" id="4" onclick="player(4)">4 Player</button>
+        <button class="btn" id="3"onclick="player(3)">3 Player</button>
+        <button class="btn" id="2" onclick="player(2)">2 Player</button>
+       <span id="change"> <button class="btn" id="start" onclick="begin()">START</button></span>
+      </div>
+    <div class="container">
+        <div class="dice">
+            <img id="dice-image" src="diceimg/one.jpeg" alt="1">
+        </div>
+        <div id="box">
+
+        </div>
+    </div>
+    <script src="l.js"></script>   
+     <!-- <script id="dynamic-script" src="fileinclude.js"></script> -->
+     <script src="4pl.js"></script>
+    <script>
+        var activeScript = '4pl.js';
+        var no_of_player=4;
+        var r = 1, b = 1, g = 1, y = 1;
+
+
+        function player(a)
+        {
+           no_of_player=a;
+          var t=document.getElementById(`${a}`);
+          t.style.backgroundColor = "rgb(9 181 237)";
+          t.style.color="white";
+        }
+        function loadScript(filename) {
+            const scriptTag = document.getElementById('dynamic-script');
+            //scriptTag.src = "4pl.js";
+            activeScript = filename;
+            console.log(activeScript," ","HTML");
+            initializeGame();
+            start_game();
+          }
+          function redPices()
+          {
+              var i=2;
+              while(i<=3)
+                     {
+                      var j=2;
+                      while(j<=3)
+                       {
+                          const cell = document.getElementById(`cell-${i}-${j}`);
+          
+                          const span = document.createElement("span");
+                          span.className = "material-symbols-outlined RED";
+                          span.textContent = "chess";
+                      span.id=`tokens-r-${r}`;
+                      cell.appendChild(span);
+                      r+=1;
+                      j++;
+                      }
+                      i+=1;
+                  }
+          }
+          function bluePices()
+          {
+              var i=11;
+              while(i<=12)
+                     {
+                      var j=2;
+                      while(j<=3)
+                       {
+                          const cell = document.getElementById(`cell-${i}-${j}`);
+          
+                          const span = document.createElement("span");
+                          span.className = "material-symbols-outlined BLUE";
+                          span.textContent = "chess";
+                          span.id=`tokens-b-${b}`;
+                          cell.appendChild(span);
+                          b+=1;
+                      j++;
+                      }
+                      i+=1;
+                  }
+          }
+          function yellowPices()
+          {
+              var i=11;
+              while(i<=12)
+                     {
+                      var j=11;
+                      while(j<=12)
+                       {
+                          const cell = document.getElementById(`cell-${i}-${j}`);
+          
+                          const span = document.createElement("span");
+                          span.className = "material-symbols-outlined YELLOW";
+                          span.textContent = "chess";
+                      span.id=`tokens-y-${y}`;
+                      cell.appendChild(span);
+                      y+=1;
+                      j++;
+                      }
+                      i+=1;
+                  }
+          }
+          function greenPices()
+          {
+              var i=2;
+              while(i<=3)
+                     {
+                      var j=11;
+                      while(j<=12)
+                       {
+                          const cell = document.getElementById(`cell-${i}-${j}`);
+          
+                          const span = document.createElement("span");
+                          span.className = "material-symbols-outlined GREEN";
+                          span.textContent = "chess";
+                      span.id=`tokens-g-${g}`;
+                      cell.appendChild(span);
+                      g+=1;
+                      
+                      j++;
+                      }
+                      i+=1;
+                  }
+          }
+          
+          function initializeGame() {
+            // Check the active script and call the respective functions
+            if (activeScript === '4pl.js') {
+                console.log('4 Player script is active');
+                redPices();
+                greenPices();
+                bluePices();
+                yellowPices();
+            } else if (activeScript === '3pl.js') {
+                console.log('3 Player script is active');
+                redPices();
+                bluePices();
+                yellowPices();
+            } else if (activeScript === '2pl.js') {
+                console.log('2 Player script is active');
+                redPices();
+                yellowPices();
+            } else {
+                // Default code if no script is active
+                console.log('No active script');
+            }
+        }
+        
+          
+          function begin() {
+            //const scriptTag = document.getElementById('dynamic-script');
+            //scriptTag.parentNode.removeChild(scriptTag);
+    
+            document.getElementById("change").innerHTML="<button class='btn' id='reset' onclick='reload_the_page()'>QUIT</button>";
+            loadScript(`${no_of_player}pl.js`) ;
+         
+         }
+         function reload_the_page()
+         {
+            location.reload();
+         }
+    </script>
+</body>
+</html>
+
+
+
+<!-- for red turn background-color : rgb(247 197 186)
+    for blue turn background-color :rgb(205, 255, 255)
+    for green turn background-color : #c2f9c2
+    for yellow turn background-color : rgba(251, 214, 4, 0.96)
+ -->
+
+
+

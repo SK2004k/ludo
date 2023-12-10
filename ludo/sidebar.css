@@ -1,0 +1,103 @@
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid ;
+    z-index: 10;
+    align-items: center;
+  }
+  
+  /* Sidebar links */
+  .sidebar a 
+  {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+  }
+  .sidebar .btn
+  {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    width: 90px;
+  }
+  .sidebar a.active
+   {
+    background-color: #04AA6D;
+    color: white;
+  }
+  /* Active/current link */
+  .sidebar .btn.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar .btn:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  .sidebar #reset {
+    background-color: #ff4d0c;
+    color: white;
+  }
+  .sidebar #start:hover:not(.active) {
+    background-color: #8afd2c;
+    color: white;
+  }
+  .sidebar #start {
+    background-color: #02e30e;
+    color: white;
+  }
+  .sidebar #reset:hover:not(.active) {
+    background-color: #fda10e;
+    color: white;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 1200px) {
+    .sidebar {
+      display: block;
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar .btn 
+    {
+      float: left;
+    }
+    .sidebar a{
+      width: 100%;
+
+    }
+    div.content {margin-left: 0;}
+  }
+  
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar .btn,
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
