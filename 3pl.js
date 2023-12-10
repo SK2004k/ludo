@@ -1,7 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    
-    var r_path = ["cell-6-1","cell-6-2","cell-6-3","cell-6-4","cell-6-5",
+console.log('inside 3pl.js');
+var r_path = ["cell-6-1","cell-6-2","cell-6-3","cell-6-4","cell-6-5",
     "cell-5-6","cell-4-6","cell-3-6","cell-2-6","cell-1-6","cell-0-6",
     "cell-0-7",
     "cell-0-8","cell-1-8","cell-2-8","cell-3-8","cell-4-8","cell-5-8",
@@ -58,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var dice_image = ["diceimg/one.jpeg","diceimg/two.jpeg","diceimg/three.jpeg","diceimg/four.jpeg","diceimg/five.jpeg","diceimg/six.jpeg"];
     var path_length = r_path.length;
     var tokenclass=["RED","BLUE","YELLOW"];
-    var redinhome=["#cell-2-2","#cell-2-3","#cell-3-2","#cell-3-3"];
-    var blueinhome=["#cell-11-2","#cell-11-3","#cell-12-2","#cell-12-3"];
-    var yellowinhome=["#cell-11-11","#cell-11-12","#cell-12-11","#cell-12-12"];
+    var redinhome=["cell-2-2","cell-2-3","cell-3-2","cell-3-3"];
+    var blueinhome=["cell-11-2","cell-11-3","cell-12-2","cell-12-3"];
+    var yellowinhome=["cell-11-11","cell-11-12","cell-12-11","cell-12-12"];
     
     var background_color = ["rgb(247 197 186)","rgb(205, 255, 255)","rgba(251, 214, 4, 0.96)"];
     
@@ -117,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                  const cell = document.getElementById(a[num-1]);
                  console.log(a[num-1]," ",num);
-                array_2pl[turn_2pl][num-1]=-1;
+                array[turn][num-1]=-1;
                  cell.appendChild(span);
                 console.log(`Span ${index + 1}: id=${spanId}, class=${spanClass}`);
 
@@ -190,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
         if(num==6)
          return [0,1,2,3];
-        l=[];
+       let l=[];
          for(var i=0;i<4;i++)
          if(Valid(a,i,num))
          l.push(i);
@@ -260,5 +258,5 @@ console.log("Over");
             
         });
         
-    });
+
     
