@@ -34,8 +34,7 @@
         </div>
     </div>
     <script src="l.js"></script>   
-     <!-- <script id="dynamic-script" src="fileinclude.js"></script> -->
-     <script src="4pl.js"></script>
+      <script id="dynamic-script" src="4pl.js"></script> 
     <script>
         var activeScript = '4pl.js';
         var no_of_player=4;
@@ -51,11 +50,10 @@
         }
         function loadScript(filename) {
             const scriptTag = document.getElementById('dynamic-script');
-            //scriptTag.src = "4pl.js";
+            scriptTag.src = filename;
             activeScript = filename;
             console.log(activeScript," ","HTML");
             initializeGame();
-            start_game();
           }
           function redPices()
           {
